@@ -53,9 +53,9 @@ class Ui_MainWindow(QtCore.QObject):
 
         # Main Window
 
-        path_animated_logo = AppContext.get_resource('DSC_logo_animated.gif')
-        path_logo_small = AppContext.get_resource('handwriter_logo_small.png')
-        path_logo = AppContext.get_resource('handwriter_logo.png')
+        # path_animated_logo = AppContext.get_resource('DSC_logo_animated.gif')
+        # path_logo_small = AppContext.get_resource('handwriter_logo_small.png')
+        # path_logo = AppContext.get_resource('handwriter_logo.png')
         self.path_hashes = AppContext.get_resource('hashes.pickle')
 
         self.MainWindow = MainWindow
@@ -66,7 +66,7 @@ class Ui_MainWindow(QtCore.QObject):
         self.centralwidget = QtWidgets.QWidget(self.MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.MainWindow.setCentralWidget(self.centralwidget)
-        self.MainWindow.setWindowIcon(QtGui.QIcon(path_logo_small))
+        # self.MainWindow.setWindowIcon(QtGui.QIcon(path_logo_small))
 
         # Animated DSC Logo
 
@@ -74,16 +74,16 @@ class Ui_MainWindow(QtCore.QObject):
         self.logo_label.resize(200, 80)
         self.logo_label.move(320, 45)
         # Custom class moviebox resizes QMovie to desired width (pixels):
-        self.logo_movie = MovieBox(path_animated_logo).resized_movie(180)
-        self.logo_movie.setSpeed(350)
-        self.logo_movie.frameChanged.connect(self.check_stopping_frame)
-        self.logo_label.setMovie(self.logo_movie)
-        self.logo_movie.start()
+        # self.logo_movie = MovieBox(path_animated_logo).resized_movie(180)
+        # self.logo_movie.setSpeed(350)
+        # self.logo_movie.frameChanged.connect(self.check_stopping_frame)
+        # self.logo_label.setMovie(self.logo_movie)
+        # self.logo_movie.start()
 
         # Application name logo
 
         app_logo = QtWidgets.QLabel(self.centralwidget)
-        app_logo.setPixmap(QtGui.QPixmap(path_logo).scaled(540, 100, QtCore.Qt.KeepAspectRatio, transformMode = QtCore.Qt.SmoothTransformation))
+        # app_logo.setPixmap(QtGui.QPixmap(path_logo).scaled(540, 100, QtCore.Qt.KeepAspectRatio, transformMode = QtCore.Qt.SmoothTransformation))
         app_logo.setFixedSize(540, 100)
         app_logo.setObjectName("app_logo")
         app_logo.setGeometry(185, 210, 300, 150)
@@ -222,9 +222,9 @@ class Ui_MainWindow(QtCore.QObject):
         document_name = re.search('[^/]*$', self.doc_path).group()
         self.btn_select_document.setText(document_name)
 
-    def check_stopping_frame(self):
-        if self.logo_movie.currentFrameNumber() == 210: # 110 - Frame where DSC logo completes
-            self.logo_movie.stop()
+    # def check_stopping_frame(self):
+    #     if self.logo_movie.currentFrameNumber() == 210: # 110 - Frame where DSC logo completes
+    #         self.logo_movie.stop()
 
 # Thread class for executing application logic separate from main UI thread            
 class ParserThread(QtCore.QThread):
