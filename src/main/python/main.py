@@ -53,15 +53,13 @@ class Ui_MainWindow(QtCore.QObject):
 
         # Main Window
 
-        # path_animated_logo = AppContext.get_resource('DSC_logo_animated.gif')
-        # path_logo_small = AppContext.get_resource('handwriter_logo_small.png')
-        # path_logo = AppContext.get_resource('handwriter_logo.png')
+       
         self.path_hashes = AppContext.get_resource('hashes.pickle')
 
         self.MainWindow = MainWindow
         self.MainWindow.setObjectName("HandWriter")
         self.MainWindow.setStyleSheet("QMainWindow {background: 'white'}")
-        self.MainWindow.setFixedSize(800, 600)
+        self.MainWindow.setFixedSize(500, 300)
         self.MainWindow.setWindowFlags(QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.WindowMinimizeButtonHint)    # Disable window maximize button
         self.centralwidget = QtWidgets.QWidget(self.MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -96,7 +94,7 @@ class Ui_MainWindow(QtCore.QObject):
         self.btn_select_document.setFixedSize(200, 50)
         self.btn_select_document.setFont(font_select)
         self.btn_select_document.setShortcut('Ctrl+O')
-        self.btn_select_document.setGeometry(175, 445, 150, 50)
+        self.btn_select_document.setGeometry(150, 45, 150, 50)
 
         # Write Button
         
@@ -106,7 +104,7 @@ class Ui_MainWindow(QtCore.QObject):
         self.btn_write.setFont(self.font_asleep)
         self.btn_write.setStyleSheet(self.stylesheet_write_inactive)
         self.btn_write.setShortcut('Ctrl+E')
-        self.btn_write.setGeometry(435, 445, 150, 50)
+        self.btn_write.setGeometry(150, 145, 150, 50)
 
         # Progress Bar
 
@@ -119,7 +117,7 @@ class Ui_MainWindow(QtCore.QObject):
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
-        self.MainWindow.setWindowTitle(_translate("MainWindow", "HandWriter"))
+        self.MainWindow.setWindowTitle(_translate("MainWindow", "HandWrite"))
         self.btn_select_document.clicked.connect(self.open_document)
         self.btn_write.clicked.connect(self.parse_document)
 
